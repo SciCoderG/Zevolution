@@ -2,6 +2,7 @@ package de.zevolution;
 
 import com.badlogic.ashley.core.ComponentMapper;
 
+import de.zevolution.input.InputComponent;
 import de.zevolution.menu.MenuButtonComponent;
 import de.zevolution.physics.components.PhysicsBodyComponent;
 import de.zevolution.physics.components.PhysicsModifierComponent;
@@ -24,4 +25,6 @@ public class CompMappers {
             .getFor(PositionComponent.class);
     public static final ComponentMapper<MenuButtonComponent> menuButton = ComponentMapper
             .getFor(MenuButtonComponent.class);
+    public static final ComponentMapper<InputComponent> input = ComponentMapper
+            .getFor(InputComponent.class);
 }

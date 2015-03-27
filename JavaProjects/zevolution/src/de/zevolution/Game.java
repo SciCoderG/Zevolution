@@ -9,6 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 
+import de.zevolution.input.InputKeyboardSystem;
 import de.zevolution.menu.MenuEntityCreator;
 import de.zevolution.menu.MenuInputProcessor;
 import de.zevolution.physics.systems.PhysicsSystem;
@@ -23,6 +24,10 @@ import de.zevolution.physics.systems.UpdatePositionSystem;
 public class Game implements ApplicationListener {
 
     private PooledEngine engine;
+    
+    //Systems
+    private InputKeyboardSystem inputKeyboardSystem;
+    
  // Zu Testzwecken
     private OrthographicCamera ortho;
     private Box2DDebugRenderer debugRenderer;
@@ -66,14 +71,20 @@ public class Game implements ApplicationListener {
         //add UpdatePositionSystem
         engine.addSystem(new UpdatePositionSystem(GameConstants.PHYSICS_PRIORITY + 1));
         
-        
+        // InputKeyboardSystem
+        inputKeyboardSystem = new InputKeyboardSystem(GameConstants.INPUT_PRIORITY);
+        engine.addSystem(inputKeyboardSystem);   
     }
     
     private void setInputProcessors(){
         InputMultiplexer multi = new InputMultiplexer();
         
+        //add the menuInputProcessor
         MenuInputProcessor menuInput = new MenuInputProcessor();
         multi.addProcessor(menuInput);
+        
+        // add the keyboard Input Processor
+        multi.addProcessor(inputKeyboardSystem);
         
         Gdx.input.setInputProcessor(multi);
     }
