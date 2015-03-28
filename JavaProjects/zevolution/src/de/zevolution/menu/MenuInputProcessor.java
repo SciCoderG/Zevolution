@@ -8,6 +8,7 @@ import com.badlogic.gdx.InputProcessor;
 
 import de.zevolution.CompMappers;
 import de.zevolution.EntityCreator;
+import de.zevolution.game.GameEntityCreator;
 import de.zevolution.math.utils.Collision;
 import de.zevolution.physics.components.PositionComponent;
 
@@ -56,7 +57,7 @@ public class MenuInputProcessor implements InputProcessor {
                 switch (menuButton.target) {
                 case "game":
                     //zum testen
-                    MenuEntityCreator.createMenuButton(100, 100,100,100, "main");
+                    GameEntityCreator.loadLevel();
                     break;
                 case "main":
                     break;

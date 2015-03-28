@@ -4,6 +4,7 @@ import com.badlogic.ashley.core.ComponentMapper;
 
 import de.zevolution.input.InputComponent;
 import de.zevolution.menu.MenuButtonComponent;
+import de.zevolution.movement.MovementComponent;
 import de.zevolution.physics.components.PhysicsBodyComponent;
 import de.zevolution.physics.components.PhysicsModifierComponent;
 import de.zevolution.physics.components.PositionComponent;
@@ -27,4 +28,6 @@ public class CompMappers {
             .getFor(MenuButtonComponent.class);
     public static final ComponentMapper<InputComponent> input = ComponentMapper
             .getFor(InputComponent.class);
+    public static final ComponentMapper<MovementComponent> movement = ComponentMapper
+            .getFor(MovementComponent.class);
 }

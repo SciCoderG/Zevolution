@@ -11,7 +11,7 @@ import com.badlogic.gdx.utils.Pool.Poolable;
  */
 public class InputComponent extends Component implements Poolable{
 
-	public Vector2 direction;
+	public Vector2 direction = new Vector2();
 	public boolean jump;
 	
     @Override

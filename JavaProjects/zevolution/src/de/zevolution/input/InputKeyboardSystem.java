@@ -15,7 +15,6 @@ import de.zevolution.physics.utils.Directions;
 
 public class InputKeyboardSystem extends IteratingSystem implements InputProcessor{
 	
-	private Vector2 direction;
 	private boolean jump;
 	private boolean up, down, left, right;
 	
@@ -23,7 +22,6 @@ public class InputKeyboardSystem extends IteratingSystem implements InputProcess
 
     public InputKeyboardSystem(int priority) {
         super(Family.all(InputComponent.class).get(), priority);
-        direction = new Vector2();
     }
 
     @Override
@@ -36,17 +34,18 @@ public class InputKeyboardSystem extends IteratingSystem implements InputProcess
     	input.jump = this.jump;
     	
     	if(up){
-    		direction.add(Directions.UP);
+    		input.direction.add(Directions.UP);
     	}
     	if(down){
-    		direction.add(Directions.DOWN);
+    		input.direction.add(Directions.DOWN);
     	}
     	if(left){
-    		direction.add(Directions.LEFT);
+    		input.direction.add(Directions.LEFT);
     	}
     	if(right){
-    		direction.add(Directions.RIGHT);
+    		input.direction.add(Directions.RIGHT);
     	}
+    	
     }
 
 	@Override
