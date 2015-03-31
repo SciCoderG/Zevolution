@@ -5,11 +5,14 @@ import java.util.List;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.utils.Array;
 
 import de.zevolution.EntityCreator;
 import de.zevolution.input.InputComponent;
+import de.zevolution.menu.MenuInputProcessor;
 import de.zevolution.movement.MovementComponent;
 import de.zevolution.physics.components.PhysicsBodyComponent;
 import de.zevolution.physics.utils.PhysicsBodyDef;
@@ -18,6 +21,8 @@ import de.zevolution.physics.utils.PhysicsFixtureDef;
 public class GameEntityCreator extends EntityCreator {
 
 	public static List<Entity> loadLevel() {
+		unLoadMenus();
+		
 		List<Entity> toReturn = new ArrayList<Entity>();
 		Entity player = createPlayer(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight() - 100.0f);
 		toReturn.add(player);
@@ -25,7 +30,7 @@ public class GameEntityCreator extends EntityCreator {
 		return toReturn;
 	}
 
-	public static Entity createPlayer(float x, float y) {
+	private static Entity createPlayer(float x, float y) {
 		Entity entity = engine.createEntity();
 		
 		// Creating the PhysicsBodyComponent
@@ -55,5 +60,26 @@ public class GameEntityCreator extends EntityCreator {
 		
 		engine.addEntity(entity);
 		return entity;
+	}
+	
+	/**
+	 * Get rid of any entities constructed by menus, unnecessary InputProcessors and Systems
+	 * TODO: the menuInputProcessor will later be given by a Manager class --> you don't have
+	 * to iterate through the InputProcessors of the InputMultiplexer anymore to remove the Menu
+	 * InputProcessor
+	 */
+	private static void unLoadMenus(){
+		// first: remove all entities
+		engine.removeAllEntities();
+		
+		// get the input processors
+		InputMultiplexer multi =  (InputMultiplexer) Gdx.input.getInputProcessor();
+		Array<InputProcessor> processors = multi.getProcessors();
+		// remove the MenuInputProcessor
+		for(InputProcessor toRemove : processors){
+			if(toRemove.getClass().equals(MenuInputProcessor.class)){
+				multi.removeProcessor(toRemove);
+			}
+		}
 	}
 }

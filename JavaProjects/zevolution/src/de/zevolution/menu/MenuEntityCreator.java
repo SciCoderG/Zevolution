@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 
 import de.zevolution.EntityCreator;
@@ -20,70 +21,91 @@ import de.zevolution.physics.utils.PhysicsFixtureDef;
  *
  */
 public class MenuEntityCreator extends EntityCreator {
+	
+	private static MenuInputProcessor menuInput = new MenuInputProcessor();
+	
+	public static MenuInputProcessor getMenuInputProcessor(){
+		return menuInput;
+	}
 
-    /**
-     * Creates the MainMenu
-     * 
-     * @return List of Entities created
-     */
-    public static List<Entity> createMainMenu() {
-        List<Entity> toReturn = new ArrayList<Entity>();
-        float width = 300.0f;
-        float height = 100.0f;
+	/**
+	 * Creates the MainMenu
+	 * 
+	 * @return List of Entities created
+	 */
+	public static List<Entity> createMainMenu() {
+		initMenuCreation();
+		
+		List<Entity> toReturn = new ArrayList<Entity>();
+		float width = 300.0f;
+		float height = 100.0f;
 
-        float x = Gdx.graphics.getWidth() / 2;
-        float y = Gdx.graphics.getHeight() / 2;
+		float x = Gdx.graphics.getWidth() / 2;
+		float y = Gdx.graphics.getHeight() / 2;
 
-        Entity entity = createMenuButton(x, y, width, height, "game");
-        toReturn.add(entity);
+		Entity entity = createMenuButton(x, y, width, height, "game");
+		toReturn.add(entity);
 
-        return toReturn;
-    }
+		return toReturn;
+	}
 
-    /**
-     * Creates a Menu Button. Use World Coordinates, not Box2D coordinates!
-     * 
-     * @param x center position on x axis
-     * @param y center position on y axis
-     * @param width
-     * @param height
-     * @param target
-     * @return created entity
-     */
-    public static Entity createMenuButton(float x, float y, float width,
-            float height, String target) {
-        Entity entity = engine.createEntity();
+	/**
+	 * Creates a Menu Button. Use World Coordinates, not Box2D coordinates!
+	 * 
+	 * @param x
+	 *            center position on x axis
+	 * @param y
+	 *            center position on y axis
+	 * @param width
+	 * @param height
+	 * @param target
+	 * @return created entity
+	 */
+	private static Entity createMenuButton(float x, float y, float width,
+			float height, String target) {
+		Entity entity = engine.createEntity();
 
-        // physicsbody definition - this wont be needed anymore, once the
-        // RenderingSystem has been initiated
-        PhysicsBodyComponent bodyComponent = engine
-                .createComponent(PhysicsBodyComponent.class);
+		// physicsbody definition - this wont be needed anymore, once the
+		// RenderingSystem has been initiated
+		PhysicsBodyComponent bodyComponent = engine
+				.createComponent(PhysicsBodyComponent.class);
 
-        PhysicsBodyDef bodyDef = new PhysicsBodyDef(BodyType.KinematicBody,
-                physicsSystem).position(x, y).fixedRotation(true);
-        bodyComponent.init(bodyDef, physicsSystem, entity);
+		PhysicsBodyDef bodyDef = new PhysicsBodyDef(BodyType.KinematicBody,
+				physicsSystem).position(x, y).fixedRotation(true);
+		bodyComponent.init(bodyDef, physicsSystem, entity);
 
-        PhysicsFixtureDef fixtureDef = new PhysicsFixtureDef(physicsSystem)
-                .shapeBox(width, height);
-        bodyComponent.createFixture(fixtureDef);
+		PhysicsFixtureDef fixtureDef = new PhysicsFixtureDef(physicsSystem)
+				.shapeBox(width, height);
+		bodyComponent.createFixture(fixtureDef);
 
-        entity.add(bodyComponent);
+		entity.add(bodyComponent);
 
-        // position component
-        entity.add(engine.createComponent(PositionComponent.class));
+		// position component
+		entity.add(engine.createComponent(PositionComponent.class));
 
-        // menubuttonComponent
-        MenuButtonComponent menuButton = engine
-                .createComponent(MenuButtonComponent.class);
-        menuButton.width = width;
-        menuButton.height = height;
-        menuButton.buttonText = "Game";
-        menuButton.target = target;
-        entity.add(menuButton);
+		// menubuttonComponent
+		MenuButtonComponent menuButton = engine
+				.createComponent(MenuButtonComponent.class);
+		menuButton.width = width;
+		menuButton.height = height;
+		menuButton.buttonText = "Game";
+		menuButton.target = target;
+		entity.add(menuButton);
 
-        //
-        engine.addEntity(entity);
-        return entity;
-    }
+		//
+		engine.addEntity(entity);
+		return entity;
+	}
+
+	/**
+	 * Initializes the systems and Input Processors needed for Menus to work
+	 */
+	public static void initMenuCreation() {
+		// add the menuInputProcessor
+		InputMultiplexer multi = (InputMultiplexer) Gdx.input.getInputProcessor();
+		multi.addProcessor(menuInput);
+	}
+	
+	
 
 }

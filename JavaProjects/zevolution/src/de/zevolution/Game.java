@@ -1,13 +1,11 @@
 package de.zevolution;
 
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL20;
 
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
-import com.badlogic.gdx.graphics.GL30;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2D;
@@ -16,7 +14,6 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import de.zevolution.input.InputKeyboardSystem;
 import de.zevolution.menu.MenuEntityCreator;
 import de.zevolution.menu.MenuInputProcessor;
-import de.zevolution.movement.MovementComponent;
 import de.zevolution.movement.MovementSystem;
 import de.zevolution.physics.systems.PhysicsSystem;
 import de.zevolution.physics.systems.UpdatePositionSystem;
@@ -34,7 +31,7 @@ public class Game implements ApplicationListener {
     //Systems
     private InputKeyboardSystem inputKeyboardSystem;
     
- // Zu Testzwecken
+    // Zu Testzwecken
     private OrthographicCamera ortho;
     private Box2DDebugRenderer debugRenderer;
 
@@ -81,19 +78,14 @@ public class Game implements ApplicationListener {
         engine.addSystem(new MovementSystem(GameConstants.PHYSICS_PRIORITY+1));
         
         //add UpdatePositionSystem
-        engine.addSystem(new UpdatePositionSystem(GameConstants.PHYSICS_PRIORITY + 2));
-        
-        
-        
-        
+        engine.addSystem(new UpdatePositionSystem(GameConstants.PHYSICS_PRIORITY + 2));   
     }
     
+    /**
+     * TODO: This should be done by a Manager (bspw. MenuManager
+     */
     private void setInputProcessors(){
         InputMultiplexer multi = new InputMultiplexer();
-        
-        //add the menuInputProcessor
-        MenuInputProcessor menuInput = new MenuInputProcessor();
-        multi.addProcessor(menuInput);
         
         // add the keyboard Input Processor
         multi.addProcessor(inputKeyboardSystem);
