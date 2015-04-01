@@ -7,9 +7,8 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import de.zevolution.physics.systems.PhysicsSystem;
 
 /**
- * Nearly exactly the class PhysixBodyDef by Santo Pfingsten in the gdw-commons-gdx project
  * Easier to use BodyDef of a Box2D Body
- * @author Santo Pfingsten
+ * 
  * @author David
  *
  */

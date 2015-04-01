@@ -13,11 +13,9 @@ import de.zevolution.physics.systems.PhysicsSystem;
 
 
 /**
-* Nearly the same helper class as PhysixFixtureDef of the gdw-commons-gdx
 * Easier to use FixtureDefinition of a Box2D fixture
 *
 * @author David Liebemann
-* @author Santo Pfingsten
 */
 public class PhysicsFixtureDef extends FixtureDef {
 
