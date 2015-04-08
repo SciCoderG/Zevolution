@@ -5,10 +5,8 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.math.Vector2;
 
 import de.zevolution.CompMappers;
-import de.zevolution.EntityCreator;
 import de.zevolution.physics.utils.Directions;
 
 

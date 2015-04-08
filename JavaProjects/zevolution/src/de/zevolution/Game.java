@@ -13,7 +13,6 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 
 import de.zevolution.input.InputKeyboardSystem;
 import de.zevolution.menu.MenuEntityCreator;
-import de.zevolution.menu.MenuInputProcessor;
 import de.zevolution.movement.MovementSystem;
 import de.zevolution.physics.systems.PhysicsSystem;
 import de.zevolution.physics.systems.UpdatePositionSystem;
