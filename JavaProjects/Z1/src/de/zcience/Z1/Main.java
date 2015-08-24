@@ -8,7 +8,7 @@ import de.zcience.Z1.game.Game;
 public class Main {
 	public static void main(String[] args) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-        config.title = "LudumDare_DT_2015";
+        config.title = "Zevolution";
         config.width = 1024;
         config.height = 576;
         config.vSyncEnabled=true;

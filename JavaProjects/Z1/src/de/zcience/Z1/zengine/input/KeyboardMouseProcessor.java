@@ -61,7 +61,7 @@ public class KeyboardMouseProcessor implements InputProcessor {
 			case Input.Keys.A: plane -= 1.0f; break;
 			case Input.Keys.D: plane += 1.0f; break;
 			case Input.Keys.W: this.jump(true); break;
-			case Input.Keys.F5: Game.setDoDebugRendering(!Game.isDoDebugRendering());
+			//case Input.Keys.F5: Game.setDoDebugRendering(!Game.isDoDebugRendering());
 		}
 		this.move(plane, 0.0f, 0.0f);
 		return true;
