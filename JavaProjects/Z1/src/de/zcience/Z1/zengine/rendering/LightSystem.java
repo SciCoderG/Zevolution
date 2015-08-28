@@ -1,13 +1,11 @@
 package de.zcience.Z1.zengine.rendering;
 
-import box2dLight.Light;
-import box2dLight.RayHandler;
-
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.gdx.physics.box2d.World;
 
+import box2dLight.Light;
+import box2dLight.RayHandler;
 import de.zcience.Z1.game.EntityCreator;
-import de.zcience.Z1.zengine.util.profiling.ProfilerGlobal;
 
 public class LightSystem extends EntitySystem {
 

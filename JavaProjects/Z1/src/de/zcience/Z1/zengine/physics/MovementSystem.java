@@ -4,10 +4,16 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 
-import de.zcience.Z1.game.components.JumpComponent;
 import de.zcience.Z1.zengine.input.InputComponent;
 import de.zcience.Z1.zengine.util.CompMappers;
 
+/**
+ * TODO: Move the Input handling into a PlayerSystem. AI can just directly control the MovementComponent
+ * without needing an input component
+ * 
+ * @author David_000
+ *
+ */
 public class MovementSystem extends IteratingSystem {
 
 

@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import de.zcience.Z1.game.EntityCreator;
-import de.zcience.Z1.zengine.physics.MovementComponent;
 import de.zcience.Z1.zengine.physics.PositionComponent;
 import de.zcience.Z1.zengine.rendering.components.AnimationComponent;
 import de.zcience.Z1.zengine.rendering.components.TextureComponent;
@@ -74,7 +73,6 @@ public class TextureRenderer extends IteratingSystem {
 
 		transX = position.x - transX - (width / 2);
 		transY = position.y - transY - (height / 2);
-
 		DrawUtil.batch.draw(texture, transX, transY, width, height);
 	}
 }

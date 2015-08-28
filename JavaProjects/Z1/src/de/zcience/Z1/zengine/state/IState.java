@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.badlogic.ashley.core.EntitySystem;
 
-public interface GameState {	
+public interface IState {	
 	public void enter();
 	public void render(float deltaTime);
 	public void leave();

@@ -8,7 +8,6 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector3;
 
 import de.zcience.Z1.game.EntityCreator;
-import de.zcience.Z1.game.Game;
 import de.zcience.Z1.game.components.PlayerComponent;
 import de.zcience.Z1.zengine.util.CompMappers;
 import de.zcience.Z1.zengine.util.GameConstants;
@@ -42,7 +41,7 @@ public class KeyboardMouseProcessor implements InputProcessor {
 			
 			/*
 			 *TODO
-			 * Here happens the magic of the calculation. Should be in CameraSystem
+			 * Here happens the magic of the calculation. Should be somewhere else
 			 */
 			Vector3 pos = EntityCreator.camSystem.getCamera().position.cpy();
 			pos.scl(GameConstants.BOX2D_SCALE);
@@ -81,7 +80,6 @@ public class KeyboardMouseProcessor implements InputProcessor {
 
 	@Override
 	public boolean keyTyped(char character) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -105,13 +103,11 @@ public class KeyboardMouseProcessor implements InputProcessor {
 
 	@Override
 	public boolean mouseMoved(int screenX, int screenY) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean scrolled(int amount) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

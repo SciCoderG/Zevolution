@@ -13,7 +13,6 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 
 import de.zcience.Z1.zengine.util.CompMappers;
-import de.zcience.Z1.zengine.util.Point;
 
 /**
  * 
@@ -143,10 +142,10 @@ public class PhysicsSystem extends IteratingSystem {
      * @param pointList
      * @return
      */
-    public Vector2[] toBox2D(List<Point> pointList) {
+    public Vector2[] toBox2D(List<Vector2> pointList) {
         Vector2[] returner = new Vector2[pointList.size()];
         for (int pointCount = 0; pointCount < returner.length; pointCount++) {
-            Point p = pointList.get(pointCount);
+        	Vector2 p = pointList.get(pointCount);
             returner[pointCount] = new Vector2(p.x * scale, p.y * scale);
         }
         return returner;

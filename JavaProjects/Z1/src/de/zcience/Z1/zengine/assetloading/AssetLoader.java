@@ -5,10 +5,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
 import de.zcience.Z1.game.EntityCreator;
-import de.zcience.Z1.game.Game;
 import de.zcience.Z1.tiled.MapLoader;
 import de.zcience.Z1.zengine.assetloading.AnimationLoader.AnimationParameter;
 

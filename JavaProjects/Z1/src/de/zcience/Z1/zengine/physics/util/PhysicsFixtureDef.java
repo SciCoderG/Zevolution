@@ -9,7 +9,6 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 
 import de.zcience.Z1.zengine.physics.PhysicsSystem;
-import de.zcience.Z1.zengine.util.Point;
 
 
 /**
@@ -117,7 +116,7 @@ public class PhysicsFixtureDef extends FixtureDef {
     * @param points
     * @return
     */
-   public PhysicsFixtureDef shapePolygon(List<Point> points) {
+   public PhysicsFixtureDef shapePolygon(List<Vector2> points) {
        PolygonShape polyShape = new PolygonShape();
        polyShape.set(system.toBox2D(points));
        this.shape = polyShape;
@@ -129,7 +128,7 @@ public class PhysicsFixtureDef extends FixtureDef {
     * @param points
     * @return
     */
-   public PhysicsFixtureDef shapePolyline(List<Point> points) {
+   public PhysicsFixtureDef shapePolyline(List<Vector2> points) {
        ChainShape chainShape = new ChainShape();
        chainShape.createChain(system.toBox2D(points));
        this.shape = chainShape;
