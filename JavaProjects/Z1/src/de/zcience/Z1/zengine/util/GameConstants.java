@@ -5,8 +5,8 @@ import java.nio.file.AccessDeniedException;
 public class GameConstants {
 	// system priorities
 	public static final int INPUT_PRIORITY = 10;
-	public static final int PHYSICS_PRIORITY = 40;
-	public static final int CAMERA_PRIORITY = 50;
+	public static final int PHYSICS_PRIORITY = 50;
+	public static final int CAMERA_PRIORITY = 100;
 
 	// Box2D constants
 	public static final int BOX2D_VELOCITY_ITERATIONS = 8;
@@ -16,7 +16,7 @@ public class GameConstants {
 	// CameraConstants
 	public static final boolean YDOWN = false;
 
-	// 
+	// TileSize used
 	private static int TileSizeX = 0;
 	private static int TileSizeY = 0;
 

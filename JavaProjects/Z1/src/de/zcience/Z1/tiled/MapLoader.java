@@ -1,4 +1,4 @@
-package de.zcience.Z1.zengine.assetloading;
+package de.zcience.Z1.tiled;
 
 import java.nio.file.AccessDeniedException;
 
@@ -12,7 +12,6 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 
 import de.zcience.Z1.game.EntityCreator;
-import de.zcience.Z1.tiled.TiledMapRenderingSystem;
 import de.zcience.Z1.zengine.camera.CameraSystem;
 import de.zcience.Z1.zengine.physics.PhysicsSystem;
 import de.zcience.Z1.zengine.util.GameConstants;

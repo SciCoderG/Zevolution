@@ -7,7 +7,7 @@ import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.gdx.physics.box2d.World;
 
 import de.zcience.Z1.game.EntityCreator;
-import de.zcience.Z1.zengine.profiling.ProfilerGlobal;
+import de.zcience.Z1.zengine.util.profiling.ProfilerGlobal;
 
 public class LightSystem extends EntitySystem {
 

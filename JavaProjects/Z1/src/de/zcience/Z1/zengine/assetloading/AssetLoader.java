@@ -9,6 +9,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
 import de.zcience.Z1.game.EntityCreator;
 import de.zcience.Z1.game.Game;
+import de.zcience.Z1.tiled.MapLoader;
 import de.zcience.Z1.zengine.assetloading.AnimationLoader.AnimationParameter;
 
 /**

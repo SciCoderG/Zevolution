@@ -45,6 +45,13 @@ public class CameraSystem extends EntitySystem implements EntityListener {
 		setCameraSmoothness(0.5f, 2.0f);
 	}
 
+	/**
+	 * Sets the spring constant in the harmonic spring equation. The damp constant will be automatically
+	 * calculated to equal critical damping (no oscillating of the camera).
+	 * 
+	 * @param springConst spring constant in the harmonic spring equation. The higher, the more quickly the
+	 * camera will follow (spring gets harder)
+	 */
 	public void setSpringConst(float springConst) {
 		// choose the springConst by your own will
 		this.springConst = springConst;
@@ -52,12 +59,24 @@ public class CameraSystem extends EntitySystem implements EntityListener {
 		this.dampConst = (float) (2.0 * Math.sqrt(springConst));
 	}
 
+	/**
+	 * Sets the mass of the camera in the harmonic spring equation.
+	 * 
+	 * @param mass - the higher, the heavier (inert) the camera feels.
+	 */
 	public void setMass(float mass) {
 		// because division is slow, we will just compute it once and store it
 		// for use in force calculation
 		this.massCoefficient = 1.0f / mass;
 	}
 	
+	/**
+	 * Sets the camera-smoothness in x and y direction, meaning: beginning at which distance from followed
+	 * object to camera position should the camera start moving?
+	 * 
+	 * @param cameraSmoothnessX
+	 * @param cameraSmoothnessY
+	 */
 	public void setCameraSmoothness(float cameraSmoothnessX, float cameraSmoothnessY){
 		this.cameraSmoothnessX = cameraSmoothnessX;
 		this.cameraSmoothnessY = cameraSmoothnessY;
@@ -84,11 +103,11 @@ public class CameraSystem extends EntitySystem implements EntityListener {
 				if(Math.abs(integrateX) > cameraSmoothnessX || Math.abs(integrateY) > cameraSmoothnessY){
 					camPos.x +=  integrateX;
 					camPos.y +=  integrateY;
+					setCameraPosition(camPos.x, camPos.y);
 				}	
-				setCameraPosition(camPos.x, camPos.y);
 			}
 		}
-		camera.update();
+		
 	}
 
 	@Override
@@ -100,7 +119,6 @@ public class CameraSystem extends EntitySystem implements EntityListener {
 	public void entityAdded(Entity entity) {
 		if (target == null) {
 			target = entity;
-			camera.update(true);
 		}
 	}
 
@@ -147,8 +165,6 @@ public class CameraSystem extends EntitySystem implements EntityListener {
 	public void setCameraPosition(float x, float y) {
 		camera.position.x = x / GameConstants.BOX2D_SCALE;
 		camera.position.y = y / GameConstants.BOX2D_SCALE;
-
-		// camera.translate(x, y);
 		camera.update(true);
 	}
 

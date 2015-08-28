@@ -1,4 +1,4 @@
-package de.zcience.Z1.zengine.profiling;
+package de.zcience.Z1.zengine.util.profiling;
 
 import com.badlogic.gdx.Gdx;
 

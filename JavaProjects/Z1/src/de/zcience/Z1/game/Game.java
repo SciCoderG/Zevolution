@@ -22,9 +22,9 @@ import de.zcience.Z1.game.contactlistener.MyContactListener;
 import de.zcience.Z1.game.system.DeathSystem;
 import de.zcience.Z1.game.system.JumpSystem;
 import de.zcience.Z1.game.system.ShootingSystem;
+import de.zcience.Z1.tiled.MapLoader;
 import de.zcience.Z1.tiled.TiledMapRenderingSystem;
 import de.zcience.Z1.zengine.assetloading.AssetLoader;
-import de.zcience.Z1.zengine.assetloading.MapLoader;
 import de.zcience.Z1.zengine.audio.MusicManager;
 import de.zcience.Z1.zengine.audio.SoundManager;
 import de.zcience.Z1.zengine.camera.CameraSystem;
@@ -32,19 +32,16 @@ import de.zcience.Z1.zengine.input.InputManager;
 import de.zcience.Z1.zengine.physics.MovementSystem;
 import de.zcience.Z1.zengine.physics.PhysicsSystem;
 import de.zcience.Z1.zengine.physics.UpdatePositionSystem;
-import de.zcience.Z1.zengine.profiling.ProfilerGlobal;
 import de.zcience.Z1.zengine.rendering.LightSystem;
 import de.zcience.Z1.zengine.rendering.TextureRenderer;
 import de.zcience.Z1.zengine.util.DrawUtil;
 import de.zcience.Z1.zengine.util.GameConstants;
+import de.zcience.Z1.zengine.util.profiling.ProfilerGlobal;
 
 public class Game implements ApplicationListener {
-
-	private PooledEngine engine;
 	
 	@Override
 	public void create() {
-		engine = new PooledEngine();	
 	}
 
 	@Override
@@ -55,7 +52,6 @@ public class Game implements ApplicationListener {
 
 	@Override
 	public void render() {
-		engine.update(Gdx.graphics.getDeltaTime());
 	}
 
 	@Override
