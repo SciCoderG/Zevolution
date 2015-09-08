@@ -2,16 +2,15 @@ package de.zcience.Z1.game;
 
 import com.badlogic.gdx.ApplicationListener;
 
+
 public class Game implements ApplicationListener {
-	
+		
 	@Override
 	public void create() {
 	}
 
 	@Override
-	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
-		
+	public void resize(int width, int height) {		
 	}
 
 	@Override
@@ -24,9 +23,7 @@ public class Game implements ApplicationListener {
 	}
 
 	@Override
-	public void resume() {
-		// TODO Auto-generated method stub
-		
+	public void resume() {		
 	}
 
 	@Override

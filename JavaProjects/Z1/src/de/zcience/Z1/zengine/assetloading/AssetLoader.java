@@ -7,8 +7,8 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 
 import de.zcience.Z1.game.EntityCreator;
-import de.zcience.Z1.tiled.MapLoader;
 import de.zcience.Z1.zengine.assetloading.AnimationLoader.AnimationParameter;
+import de.zcience.Z1.zengine.tiled.MapLoader;
 
 /**
  * Use this class for loading Assets into the libgdx AssetManager
