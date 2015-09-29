@@ -1,12 +1,18 @@
 package de.zcience.Z1.game;
 
+import java.util.ArrayList;
+
+import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.ApplicationListener;
 
 public class Game implements ApplicationListener{
 
+	private PooledEngine engine;
+	private ArrayList<Screen> screens;
+	
 	@Override
 	public void create() {
-		// TODO Auto-generated method stub
+		engine = new PooledEngine();
 		
 	}
 
